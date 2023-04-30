@@ -6,6 +6,8 @@ import schema from './schema';
 
 const hello: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event) => {
 
+  console.log('process.env.DATABASE_URI', process.env.DATABASE_URI)
+
   let name = event?.body?.name || 'event bridge'
 
   return formatJSONResponse({
