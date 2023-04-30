@@ -2,7 +2,7 @@ name: DEPLOY AWS LAMBDA
 on:
   push:
     branches:
-      - master
+      - main
       - develop
 jobs:
   deploy:
