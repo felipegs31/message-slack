@@ -34,7 +34,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           DATABASE_URI: ${{ secrets.DATABASE_URI_DEV }}
       - name: Step 5 - Serverless Deploy PRODUCTION
-        if: "${{ github.ref_name == 'master' }}"
+        if: "${{ github.ref_name == 'main' }}"
         uses: serverless/github-action@v2
         with:
           args: -c "serverless plugin install --name serverless-esbuild && serverless deploy --stage prod -v"
