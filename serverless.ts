@@ -10,7 +10,6 @@ const serverlessConfiguration: AWS = {
   provider: {
     name: 'aws',
     runtime: 'nodejs14.x',
-    profile: 'tutorial-aws',
     apiGateway: {
       minimumCompressionSize: 1024,
       shouldStartNameWithService: true,
