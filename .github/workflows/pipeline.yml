@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14]
+        node-version: [16]
     steps:
       - name: Step 1 - Checkout Repo
         uses: actions/checkout@v3
@@ -23,7 +23,7 @@ jobs:
         run: npm install
       - name: Step 5 - Serverless Deploy DEVELOPMENT
         if: "${{ github.ref_name == 'develop' }}"
-        uses: serverless/github-action@v2
+        uses: serverless/github-action@v3.1
         with:
           args: -c "serverless deploy --stage dev -v"
           entrypoint: /bin/sh
@@ -33,7 +33,7 @@ jobs:
           DATABASE_URI: ${{ secrets.DATABASE_URI_DEV }}
       - name: Step 5 - Serverless Deploy PRODUCTION
         if: "${{ github.ref_name == 'main' }}"
-        uses: serverless/github-action@v2
+        uses: serverless/github-action@v3.1
         with:
           args: -c "serverless deploy --stage prod -v"
           entrypoint: /bin/sh
